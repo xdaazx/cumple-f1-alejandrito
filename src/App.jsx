@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./styles/global.css";
 
 import Welcome from "./components/Welcome/Welcome";
@@ -10,25 +10,44 @@ import Gallery from "./components/Gallery/Gallery";
 import Timeline from "./components/Timeline/Timeline";
 import WhatsappButton from "./components/Whatsapp/WhatsappButton";
 import RaceCar from "./components/RaceCar/RaceCar";
+import music from "./assets/musica.mp3";
 
 function App() {
   const [started, setStarted] = useState(false);
+  const audioRef = useRef(null);
 
-  if (!started) {
-    return <Welcome onStart={() => setStarted(true)} />;
-  }
+  const startRace = async () => {
+    if (audioRef.current) {
+      try {
+        audioRef.current.volume = 0.02; // volumen 2%
+        await audioRef.current.play();
+      } catch (error) {
+        console.log("El navegador bloqueó el audio:", error);
+      }
+    }
+
+    setStarted(true);
+  };
 
   return (
-    <main>
-      <RaceCar />
-      <Navbar />
-      <Hero />
-      <Countdown />
-      <MusicButton />
-      <Timeline />
-      <Gallery />
-      <WhatsappButton />
-    </main>
+    <>
+      <audio ref={audioRef} src={music} loop preload="auto" />
+
+      {!started ? (
+        <Welcome onStart={startRace} />
+      ) : (
+        <main>
+          <RaceCar />
+          <Navbar />
+          <Hero />
+          <Countdown />
+          <MusicButton audioRef={audioRef} />
+          <Timeline />
+          <Gallery />
+          <WhatsappButton />
+        </main>
+      )}
+    </>
   );
 }
 
