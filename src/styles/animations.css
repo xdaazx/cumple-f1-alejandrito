@@ -1,0 +1,26 @@
+@keyframes moveFlag {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+@keyframes pulseRed {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 38px rgba(225, 6, 0, 0.9);
+  }
+}
+
+@keyframes floatCar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

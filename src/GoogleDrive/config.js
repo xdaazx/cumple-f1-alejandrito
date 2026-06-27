@@ -1,0 +1,3 @@
+export const GOOGLE_DRIVE_API_KEY = "AIzaSyAoU7oPz8MdAR43RoB6TqJw0qw44NJVGxo";
+
+export const GOOGLE_DRIVE_FOLDER_ID = "137ix7o6_5qDV4FFHuajpRSsfR20TbW75";

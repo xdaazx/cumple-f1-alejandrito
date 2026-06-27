@@ -1,0 +1,12 @@
+:root {
+  --f1-red: #e10600;
+  --f1-red-dark: #9b0000;
+  --gold: #ffd700;
+  --dark: #070707;
+  --dark-soft: #111111;
+  --white: #ffffff;
+  --gray: #cfcfcf;
+  --green: #25d366;
+  --radius: 22px;
+  --shadow-red: 0 0 25px rgba(225, 6, 0, 0.55);
+}

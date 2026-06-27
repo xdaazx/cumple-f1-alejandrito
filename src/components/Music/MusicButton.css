@@ -1,0 +1,29 @@
+.music-section {
+  padding: 35px 20px;
+  text-align: center;
+  background: var(--dark);
+}
+
+.music-btn {
+  border: none;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--f1-red);
+  padding: 15px 30px;
+  border-radius: 35px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: var(--shadow-red);
+  transition: transform 0.25s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .music-btn {
+    width: 90%;
+    max-width: 330px;
+  }
+}
