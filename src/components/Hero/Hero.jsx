@@ -9,7 +9,7 @@ function Hero() {
       <div className="hero-content">
         <img src={hero} alt="Cumpleañero" className="hero-img" />
 
-        <h1>Cumple 1 añiito</h1>
+        <h1>Cumple 1 añito</h1>
 
         <p className="hero-subtitle">
           🏁 Prepárate para la carrera más tierna del año 🏎️

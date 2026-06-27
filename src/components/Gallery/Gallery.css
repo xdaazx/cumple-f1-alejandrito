@@ -1,57 +1,105 @@
 .gallery-section {
-  padding: 55px 5%;
-  background: #090909;
+  padding: 60px 5%;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #090909, #151515);
+  background-size: 45px 45px;
   text-align: center;
 }
 
 .gallery-section h2 {
-  font-size: clamp(28px, 5vw, 40px);
-  margin-bottom: 30px;
+  font-size: clamp(30px, 6vw, 48px);
+  margin-bottom: 12px;
 }
 
-.gallery {
+.gallery-subtitle {
+  color: #ccc;
+  max-width: 650px;
+  margin: 0 auto 35px;
+  line-height: 1.6;
+}
+
+.pit-lane {
+  max-width: 1150px;
+  margin: auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+  position: relative;
 }
 
-.gallery img {
+.pit-photo-card {
+  position: relative;
+  background: #0c0c0c;
+  border: 2px solid #e10600;
+  border-radius: 24px;
+  padding: 12px;
+  box-shadow: 0 0 22px rgba(225, 6, 0, 0.35);
+  overflow: hidden;
+}
+
+.pit-photo-card::before {
+  content: "";
+  display: block;
+  height: 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background-color: #000;
+  background-image:
+    linear-gradient(45deg, #fff 25%, transparent 25%),
+    linear-gradient(-45deg, #fff 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #fff 75%),
+    linear-gradient(-45deg, transparent 75%, #fff 75%);
+  background-size: 20px 20px;
+}
+
+.photo-number {
+  position: absolute;
+  top: 42px;
+  left: 18px;
+  background: #e10600;
+  color: white;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.pit-photo-card img {
   width: 100%;
-  height: 280px;
+  height: 300px;
   object-fit: contain;
   background: #111;
-  padding: 8px;
-  border-radius: 20px;
-  border: 3px solid var(--f1-red);
-  box-shadow: var(--shadow-red);
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.04);
-}
-
-.loading {
-  text-align: center;
-  padding: 50px;
-  font-size: 22px;
-  color: var(--gold);
+  border-radius: 18px;
 }
 
 @media (max-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 13px;
+  .gallery-section {
+    padding: 45px 15px;
   }
 
-  .gallery img {
+  .pit-lane {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .pit-photo-card {
+    padding: 8px;
+  }
+
+  .pit-photo-card img {
     height: 210px;
-    padding: 6px;
+  }
+
+  .photo-number {
+    font-size: 12px;
+    top: 36px;
+    left: 12px;
   }
 }
 
 @media (max-width: 420px) {
-  .gallery img {
+  .pit-photo-card img {
     height: 170px;
   }
 }

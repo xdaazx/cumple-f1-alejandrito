@@ -1,0 +1,16 @@
+.race-car {
+  position: fixed;
+  bottom: 78px;
+  left: 0;
+  z-index: 80;
+  font-size: 46px;
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px #e10600);
+}
+
+@media (max-width: 600px) {
+  .race-car {
+    bottom: 72px;
+    font-size: 36px;
+  }
+}
