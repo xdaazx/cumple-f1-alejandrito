@@ -1,4 +1,4 @@
-import hero from "../../assets/hero.png";
+import hero from "../../assets/cumpleanero.png";
 import "./Hero.css";
 
 function Hero() {
@@ -7,7 +7,12 @@ function Hero() {
       <div className="flag-bar"></div>
 
       <div className="hero-content">
-        <img src={hero} alt="Cumpleañero" className="hero-img" />
+
+        <img 
+          src={hero} 
+          alt="Alejandrito cumpleañero" 
+          className="hero-img" 
+        />
 
         <h1>Cumple 1 añito</h1>
 
@@ -17,9 +22,10 @@ function Hero() {
 
         <div className="event-card">
           <p><strong>📅 Fecha:</strong> Sábado 17 de octubre de 2026</p>
-          <p><strong>🕗 Hora:</strong> 15:00 PM</p>
+          <p><strong>🕒 Hora:</strong> 3:00 PM</p>
           <p><strong>📍 Lugar:</strong> Casa de Alejandrito</p>
         </div>
+
       </div>
     </section>
   );

@@ -11,7 +11,10 @@ function Welcome({ onStart }) {
         transition={{ duration: 0.8 }}
       >
         <p className="welcome-small">🏁 Gran Premio</p>
-        <h1>Alejandrito F1</h1>
+        <h1>
+          David Alejandro <br />
+          F1
+        </h1>
         <p className="welcome-text">La carrera más tierna está por comenzar</p>
 
         <button onClick={onStart} className="start-btn">
