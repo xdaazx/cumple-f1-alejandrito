@@ -7,7 +7,7 @@ function Timeline() {
 
       <div className="timeline-container">
         <div className="timeline-card">
-          <h3>🏎️ Gran Premio de Alejandrito</h3>
+          <h3>🏎️ Gran Premio de David Alejandro</h3>
           <p>
             Te esperamos para celebrar su primer añito con una fiesta llena de
             velocidad, alegría y mucho amor.

@@ -1,71 +1,447 @@
 .welcome {
   min-height: 100vh;
+  width: 100%;
   background:
-    radial-gradient(circle at top, #e10600, #060606 55%),
-    #060606;
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(225, 6, 0, 0.35),
+      transparent 45%
+    ),
+    linear-gradient(180deg, #160000 0%, #050505 55%, #000 100%);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 25px;
+  box-sizing: border-box;
+
+  color: white;
   text-align: center;
+
+  overflow: hidden;
+  position: relative;
 }
 
-.welcome-box {
-  max-width: 520px;
-  width: 92%;
-  padding: 35px 22px;
+/* Luces ambientales */
+
+.welcome::before,
+.welcome::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(225, 6, 0, 0.2);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.welcome::before {
+  top: -70px;
+  left: -50px;
+}
+
+.welcome::after {
+  bottom: -80px;
+  right: -50px;
+}
+
+/* CONTENEDOR */
+
+.welcome-track {
+  width: min(520px, 100%);
+  padding: 35px 30px 40px;
+
+  box-sizing: border-box;
+
   border: 2px solid #e10600;
   border-radius: 28px;
-  background: rgba(0, 0, 0, 0.75);
-  box-shadow: 0 0 35px rgba(225, 6, 0, 0.6);
-  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(25, 0, 0, 0.92),
+      rgba(0, 0, 0, 0.95)
+    );
+
+  box-shadow:
+    0 0 20px rgba(225, 6, 0, 0.5),
+    0 0 60px rgba(225, 6, 0, 0.2);
+
+  position: relative;
+  z-index: 2;
+
+  animation: welcomeAppear 1s ease;
 }
 
-.welcome-small {
+/* PARTE SUPERIOR */
+
+.welcome-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
   color: #ffd700;
-  font-weight: bold;
-  letter-spacing: 3px;
-  text-transform: uppercase;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 28px;
 }
+
+/* SEMÁFORO */
+
+.f1-lights {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+  padding: 14px 20px;
+
+  background: #090909;
+
+  border: 2px solid #222;
+  border-radius: 50px;
+
+  box-shadow:
+    inset 0 0 15px #000,
+    0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.f1-light {
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  background: #250000;
+
+  border: 2px solid #4a0000;
+
+  box-shadow:
+    inset 0 0 10px #000;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.f1-light.active {
+  background: #ff0800;
+
+  border-color: #ff2b22;
+
+  box-shadow:
+    0 0 8px #ff0000,
+    0 0 20px #ff0000,
+    0 0 35px rgba(255, 0, 0, 0.8);
+
+  transform: scale(1.08);
+}
+
+.f1-light.green {
+  background: #00ff66;
+
+  border: 3px solid #baffd0;
+
+  box-shadow:
+    0 0 8px #00ff66,
+    0 0 20px #00ff66,
+    0 0 40px #00ff66,
+    0 0 70px rgba(0, 255, 102, 0.95);
+
+  transform: scale(1.18);
+
+  animation: greenLight 0.45s ease-in-out infinite alternate;
+}
+
+@keyframes greenLight {
+  from {
+    opacity: 0.75;
+    transform: scale(1.08);
+    filter: brightness(1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.22);
+    filter: brightness(1.8);
+  }
+}
+
+/* NÚMERO */
+
+.race-number {
+  font-size: clamp(65px, 18vw, 110px);
+
+  font-weight: 900;
+
+  line-height: 0.9;
+
+  color: white;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.6),
+    0 0 35px rgba(225, 6, 0, 0.7);
+
+  margin-bottom: 20px;
+
+  animation: numberPulse 0.85s ease;
+}
+
+/* ================================================= */
+/* TÍTULO */
+/* ================================================= */
 
 .welcome h1 {
-  font-size: clamp(36px, 8vw, 62px);
-  margin: 15px 0;
+  margin: 0 auto;
+
+  width: 100%;
+  max-width: 100%;
+
   color: white;
+
+  /* Se adapta al ancho disponible */
+  font-size: clamp(24px, 9vw, 58px);
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: 1px;
+
   text-transform: uppercase;
-  line-height: 1.05;
+
   text-align: center;
-  word-break: break-word;
+
+  overflow: hidden;
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(225, 6, 0, 0.35);
 }
+
+/* DAVID ALEJANDRO */
+.welcome h1 .name {
+  display: block;
+  width: 100%;
+  color: white;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 1.1; /* Subimos un poco el interlineado para que no se pegue si baja de línea */
+  text-align: center;
+  
+  /* ESTOS SON LOS CAMBIOS CLAVE */
+  white-space: normal; 
+  word-wrap: break-word;
+  letter-spacing: 0;
+  
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.25),
+    0 0 25px rgba(225, 6, 0, 0.4);
+}
+
+/* F1 */
+
+.welcome h1 .f1-title {
+  display: block;
+
+  color: #e10600;
+
+  font-size: 0.8em;
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  margin-top: 10px;
+
+  text-align: center;
+
+  text-shadow:
+    0 0 10px #e10600,
+    0 0 30px rgba(225, 6, 0, 0.7);
+}
+
+/* TEXTO */
 
 .welcome-text {
-  color: #ddd;
-  font-size: 18px;
-  margin-bottom: 30px;
+  margin: 24px auto 28px;
+
+  max-width: 360px;
+
+  color: #d5d5d5;
+
+  font-size: clamp(15px, 4vw, 19px);
+
+  line-height: 1.5;
 }
 
-.start-btn {
-  border: none;
-  background: linear-gradient(135deg, #e10600, #8b0000);
+/* LÍNEA DE SALIDA */
+
+.starting-line {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
   color: white;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 16px 28px;
-  border-radius: 40px;
-  cursor: pointer;
-  box-shadow: 0 0 25px rgba(225, 6, 0, 0.7);
+
+  font-size: 25px;
 }
 
-.start-btn:hover {
-  transform: scale(1.05);
+.starting-line div {
+  flex: 1;
+
+  height: 6px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #fff 0 15px,
+      #000 15px 30px
+    );
+
+  border-radius: 5px;
 }
+
+/* GO */
+
+.go-screen {
+  animation: goAppear 0.4s ease forwards;
+}
+
+.go-text {
+  font-size: clamp(90px, 25vw, 160px);
+
+  font-weight: 1000;
+
+  line-height: 1;
+
+  color: #00e676;
+
+  text-shadow:
+    0 0 10px #00e676,
+    0 0 30px #00e676,
+    0 0 70px rgba(0, 230, 118, 0.8);
+}
+
+.go-car {
+  margin-top: 25px;
+
+  font-size: 60px;
+
+  animation: carLaunch 0.8s ease forwards;
+}
+
+/* ANIMACIONES */
+
+@keyframes welcomeAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes numberPulse {
+  0% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes goAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes carLaunch {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(400px);
+    opacity: 1;
+  }
+}
+
+/* CELULARES */
+
 @media (max-width: 600px) {
-  .welcome-box {
-    width: 94%;
-    padding: 30px 16px;
+  /* ... tu otro código móvil ... */
+
+  .welcome h1 .name {
+    width: 100%;
+    font-size: 1em;
+    letter-spacing: 0;
+    
+    /* Asegurarnos de que aquí también permita el salto de línea */
+    white-space: normal; 
+    text-align: center;
+  }
+}
+/* CELULARES MUY PEQUEÑOS */
+
+@media (max-width: 360px) {
+
+  .welcome-track {
+    padding: 24px 14px 28px;
+  }
+
+  .f1-lights {
+    gap: 5px;
+
+    padding: 9px 10px;
+  }
+
+  .f1-light {
+    width: 21px;
+    height: 21px;
   }
 
   .welcome h1 {
-    font-size: clamp(32px, 12vw, 46px);
+    font-size: 22px;
+
+    letter-spacing: 0;
+
+    width: 100%;
+  }
+
+  .welcome h1 .name {
+    font-size: 1em;
+
+    letter-spacing: 0;
+  }
+
+  .race-number {
+    font-size: 65px;
   }
 }

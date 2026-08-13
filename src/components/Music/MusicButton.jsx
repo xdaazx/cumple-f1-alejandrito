@@ -11,18 +11,21 @@ function MusicButton({ audioRef }) {
       audioRef.current.pause();
       setPlaying(false);
     } else {
-      audioRef.current.volume = 0.02;
+      // Ajustado al 20% como se sugiere para que sea agradable
+      audioRef.current.volume = 0.20; 
       await audioRef.current.play();
       setPlaying(true);
     }
   };
 
   return (
-    <section className="music-section">
-      <button className="music-btn" onClick={toggleMusic}>
-        {playing ? "🔇 Pausar música" : "🎵 Reproducir música"}
-      </button>
-    </section>
+    <button 
+      className={`floating-music-btn ${playing ? "playing" : ""}`} 
+      onClick={toggleMusic}
+      title={playing ? "Silenciar música" : "Reproducir música"}
+    >
+      {playing ? "🔊" : "🔇"}
+    </button>
   );
 }
 

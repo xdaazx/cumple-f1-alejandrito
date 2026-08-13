@@ -1,41 +1,143 @@
 .navbar {
   width: 100%;
-  padding: 15px 7%;
-  background: rgba(0, 0, 0, 0.9);
-  border-bottom: 2px solid var(--f1-red);
+  box-sizing: border-box;
+  
+  /* Efecto Glassmorphism (Cristal) */
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  position: fixed; /* Fijo en la pantalla */
+  top: 0;
+  z-index: 1000;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  padding: 15px 5%;
+  
+  border-bottom: 1px solid rgba(225, 6, 0, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 }
 
-.navbar h2 {
-  font-size: 22px;
-  color: var(--white);
+.nav-logo {
+  margin: 0;
+  font-size: 20px;
+  color: #ffffff;
+  letter-spacing: 1px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.navbar a {
-  color: var(--white);
-  text-decoration: none;
-  background: var(--f1-red);
-  padding: 10px 20px;
-  border-radius: 30px;
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #888; /* Gris apagado cuando no está activo */
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Animación elástica */
 }
 
-@media (max-width: 600px) {
+/* Efecto hover en PC */
+.nav-btn:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+/* ESTADO ACTIVO (Cuando estás en esa pestaña) */
+.nav-btn.active {
+  background: rgba(225, 6, 0, 0.15);
+  border: 1px solid #e10600;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(225, 6, 0, 0.3);
+}
+
+.nav-icon {
+  font-size: 18px;
+}
+
+/* ========================================= */
+/* CELULARES: MODO APP (BOTTOM NAVIGATION) */
+/* ========================================= */
+@media (max-width: 768px) {
   .navbar {
-    padding: 12px 18px;
+    top: auto;
+    bottom: 0; /* Lo movemos al fondo */
+    padding: 10px 15px;
+    border-bottom: none;
+    border-top: 1px solid rgba(225, 6, 0, 0.5);
+    
+    /* Espaciado de seguridad para iPhones con la línea negra abajo */
+    padding-bottom: calc(10px + env(safe-area-inset-bottom)); 
+    justify-content: center;
   }
 
-  .navbar h2 {
-    font-size: 16px;
+  .nav-logo {
+    display: none; /* Ocultamos el título en celular para dar espacio a los iconos */
   }
 
-  .navbar a {
-    font-size: 13px;
-    padding: 8px 14px;
+  .nav-links {
+    width: 100%;
+    justify-content: space-around; /* Distribuir botones uniformemente */
+    gap: 0;
   }
+
+  .nav-btn {
+    flex-direction: column; /* Icono arriba, texto abajo */
+    gap: 5px;
+    padding: 8px 5px;
+    font-size: 10px;
+    border-radius: 12px;
+  }
+
+  .nav-btn:hover {
+    transform: none; 
+  }
+  
+  .nav-btn:active {
+    transform: scale(0.9); /* Pequeño rebote al tocar la pantalla */
+  }
+
+  .nav-icon {
+    font-size: 24px;
+  }
+  
+  /* Rediseño del botón activo para celular (más limpio) */
+  .nav-btn.active {
+    background: transparent;
+    border-color: transparent;
+    color: #e10600;
+    box-shadow: none;
+    text-shadow: 0 0 15px rgba(225, 6, 0, 0.8);
+  }
+  
+  /* Pequeña raya roja debajo del icono activo */
+  .nav-btn.active::after {
+    content: '';
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #e10600;
+    border-radius: 5px;
+    margin-top: 2px;
+    box-shadow: 0 0 8px #e10600;
+    animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+}
+
+/* Animación de entrada para la rayita inferior */
+@keyframes popIn {
+  0% { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
 }

@@ -1,33 +1,144 @@
-.whatsapp-btn {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 100;
-  background: linear-gradient(135deg, #25d366, #128c7e);
+.rsvp-section {
+  padding: 50px 20px; /* Reduje el padding excesivo ya que ahora Flexbox lo centra todo */
+  text-align: center;
   color: white;
+  font-family: 'Courier New', Courier, monospace; /* Tipografía digital base */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========================================= */
+/* CONTENEDOR DE LA TARJETA (EFECTO INVITACIÓN) */
+/* ========================================= */
+.rsvp-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+
+  /* ESTILO EXACTO DE LAS OTRAS TARJETAS */
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid #e10600;
+  border-radius: 22px;
+  box-shadow: 0 0 25px rgba(225, 6, 0, 0.4);
+  
+  /* Animación suave al pasar el cursor o tocar */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.rsvp-card:hover,
+.rsvp-card:active {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 35px rgba(225, 6, 0, 0.75);
+}
+
+.rsvp-card-inner {
+  border: 1.5px dashed #fff; /* Borde punteado blanco para el contraste F1 */
+  border-radius: 12px;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ========================================= */
+/* TÍTULO Y TEXTOS */
+/* ========================================= */
+.rsvp-title {
+  font-family: sans-serif; /* 👈 AQUÍ ROMPEMOS EL ESTILO CONSOLA PARA IGUALAR A LOS OTROS TÍTULOS */
+  font-size: clamp(24px, 5vw, 32px);
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.rsvp-text {
+  font-size: 16px;
+  color: #ccc;
+  margin: 0 0 35px 0;
+  line-height: 1.5;
+  max-width: 350px;
+}
+
+/* ========================================= */
+/* BOTÓN DE WHATSAPP (NUEVO DISEÑO NEÓN) */
+/* ========================================= */
+.rsvp-action {
+  margin-bottom: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.whatsapp-action-btn {
+  display: inline-block;
+  
+  /* Diseño de botón interactivo (Verde WhatsApp) */
+  background: rgba(37, 211, 102, 0.1); 
+  border: 2px solid #25d366; 
+  color: #25d366;
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
-  padding: 16px 26px;
-  border-radius: 40px;
-  border: 2px solid white;
-  box-shadow: 0 0 22px rgba(37, 211, 102, 0.7);
+  letter-spacing: 2px;
+  padding: 12px 25px;
+  border-radius: 8px;
+  
+  text-shadow: 0 0 8px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
 }
 
-.whatsapp-btn::before {
-  content: "📲 ";
+/* Efecto al tocar o pasar el mouse sobre el botón */
+.whatsapp-action-btn:hover,
+.whatsapp-action-btn:active {
+  background: #25d366;
+  color: #000; /* Letras negras para máximo contraste */
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+  text-shadow: none;
+  transform: scale(1.05); /* El botón crece */
 }
 
-.whatsapp-btn:hover {
-  transform: scale(1.05);
+/* ========================================= */
+/* PIE DE TARJETA */
+/* ========================================= */
+.rsvp-footer {
+  font-size: 14px;
+  color: #888;
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
 }
 
+/* ========================================= */
+/* RESPONSIVE PARA CELULARES */
+/* ========================================= */
 @media (max-width: 600px) {
-  .whatsapp-btn {
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    text-align: center;
-    font-size: 15px;
+  .rsvp-section {
+    padding: 20px 15px; 
+  }
+  
+  .rsvp-card-inner {
+    padding: 30px 15px;
+  }
+  
+  .rsvp-title {
+    font-size: 22px;
+  }
+  
+  .rsvp-text {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .whatsapp-action-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  
+  .rsvp-footer {
+    font-size: 12px;
   }
 }

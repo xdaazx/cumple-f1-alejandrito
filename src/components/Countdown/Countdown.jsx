@@ -9,14 +9,15 @@ function Countdown() {
     const difference = eventDate - now;
 
     if (difference <= 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      return { days: "00", hours: "00", minutes: "00", seconds: "00" };
     }
 
     return {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / (1000 * 60)) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
+      // Usamos String y padStart para asegurar que siempre haya 2 dígitos (ej: 08 en vez de 8)
+      days: String(Math.floor(difference / (1000 * 60 * 60 * 24))).padStart(2, "0"),
+      hours: String(Math.floor((difference / (1000 * 60 * 60)) % 24)).padStart(2, "0"),
+      minutes: String(Math.floor((difference / (1000 * 60)) % 60)).padStart(2, "0"),
+      seconds: String(Math.floor((difference / 1000) % 60)).padStart(2, "0"),
     };
   };
 
@@ -32,13 +33,28 @@ function Countdown() {
 
   return (
     <section className="countdown">
-      <h2>Faltan para la gran carrera</h2>
+      <h2 className="digital-title">RACE STARTS IN</h2>
 
-      <div className="countdown-boxes">
-        <div><span>{time.days}</span><p>Días</p></div>
-        <div><span>{time.hours}</span><p>Horas</p></div>
-        <div><span>{time.minutes}</span><p>Min</p></div>
-        <div><span>{time.seconds}</span><p>Seg</p></div>
+      <div className="countdown-board">
+        <div className="digital-box">
+          <span className="digital-number">{time.days}</span>
+          <span className="digital-label">DÍAS</span>
+        </div>
+        
+        <div className="digital-box">
+          <span className="digital-number">{time.hours}</span>
+          <span className="digital-label">HRS</span>
+        </div>
+        
+        <div className="digital-box">
+          <span className="digital-number">{time.minutes}</span>
+          <span className="digital-label">MIN</span>
+        </div>
+        
+        <div className="digital-box">
+          <span className="digital-number">{time.seconds}</span>
+          <span className="digital-label">SEG</span>
+        </div>
       </div>
     </section>
   );

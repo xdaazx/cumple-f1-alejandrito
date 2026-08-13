@@ -1,0 +1,191 @@
+.circuit-section {
+  width: 100%;
+  padding: 50px 20px;
+  color: white;
+  font-family: 'Courier New', Courier, monospace; /* Tipografía digital */
+  box-sizing: border-box;
+}
+
+.circuit-section-title {
+  font-family: sans-serif; /* Tipografía de título F1 */
+  font-size: clamp(28px, 5vw, 38px);
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center; /* Título centrado */
+}
+
+/* ========================================= */
+/* CONTENEDOR DE LA TARJETA (EFECTO INVITACIÓN)*/
+/* ========================================= */
+.circuit-card {
+  max-width: 450px; /* Un poco más ancho para que el mapa luzca bien */
+  margin: 0 auto;
+  padding: 15px;
+
+  /* ESTILO DE CRISTAL F1 */
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid #e10600;
+  border-radius: 22px;
+  box-shadow: 0 0 25px rgba(225, 6, 0, 0.4);
+  
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+/* Animación de rebote al tocar */
+.circuit-card:hover,
+.circuit-card:active {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 35px rgba(225, 6, 0, 0.75);
+}
+
+.circuit-card-inner {
+  border: 1.5px dashed #fff; 
+  border-radius: 12px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centramos todo el contenido */
+  text-align: center;
+}
+
+/* ========================================= */
+/* TEXTOS INTERNOS */
+/* ========================================= */
+.circuit-name {
+  font-size: 20px;
+  margin: 0 0 5px 0;
+  letter-spacing: 1px;
+  color: #ffd700; /* Dorado para destacar */
+  font-weight: bold;
+}
+
+.circuit-icon {
+  font-size: 22px;
+  margin: 0 0 20px 0; 
+}
+
+/* ========================================= */
+/* MAPA INCRUSTADO (EL ARREGLO) */
+/* ========================================= */
+.map-container {
+  width: 100%;
+  height: 250px; /* Altura fija para que no se desborde */
+  margin-bottom: 25px;
+  
+  /* Redondeamos las esquinas para que no sea un cuadrado tosco */
+  border-radius: 12px;
+  overflow: hidden; 
+  
+  border: 2px solid #444; /* Borde gris oscuro */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); /* Sombra interior */
+  background: #222; /* Fondo por si tarda en cargar */
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ========================================= */
+/* BOTÓN DE UBICACIÓN (VERDE NEÓN) */
+/* ========================================= */
+.circuit-action {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.maps-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  
+  background: rgba(0, 255, 102, 0.1); 
+  border: 2px solid #00ff66; 
+  color: #00ff66;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+  transition: all 0.3s ease;
+}
+
+.maps-button:hover,
+.maps-button:active {
+  background: #00ff66;
+  color: #000; 
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.6);
+  text-shadow: none;
+  transform: scale(1.03); 
+}
+
+/* ========================================= */
+/* FECHA Y HORA */
+/* ========================================= */
+.circuit-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #ccc;
+  font-size: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+.circuit-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 1px;
+}
+
+.circuit-detail-item .icon {
+  font-size: 18px;
+}
+
+/* ========================================= */
+/* RESPONSIVE PARA CELULARES */
+/* ========================================= */
+@media (max-width: 600px) {
+  .circuit-section {
+    padding: 30px 15px;
+  }
+
+  .circuit-section-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .circuit-card-inner {
+    padding: 20px 15px;
+  }
+
+  .circuit-name {
+    font-size: 18px;
+  }
+
+  .map-container {
+    height: 200px; /* Mapa un poquito más bajito en celulares */
+  }
+
+  .maps-button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  
+  .circuit-details {
+    font-size: 14px;
+  }
+}

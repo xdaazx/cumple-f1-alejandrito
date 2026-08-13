@@ -1,54 +1,112 @@
 .countdown {
   padding: 50px 20px;
-  background: var(--dark-soft);
   text-align: center;
+  color: white;
+  
+  /* Fuente tipo consola/telemétrica para darle el toque digital */
+  font-family: 'Courier New', Courier, monospace; 
 }
 
-.countdown h2 {
-  font-size: clamp(26px, 5vw, 38px);
-  margin-bottom: 28px;
-}
-
-.countdown-boxes {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.countdown-boxes div {
-  width: 115px;
-  padding: 20px 10px;
-  background: linear-gradient(135deg, var(--f1-red), var(--f1-red-dark));
-  border-radius: 18px;
-  box-shadow: var(--shadow-red);
-}
-
-.countdown-boxes span {
-  font-size: 36px;
+.digital-title {
+  /* Forzamos a que use la fuente global normal en lugar de la digital */
+  font-family: sans-serif; 
+  
+  /* Mismos valores que el título de Invitación */
+  font-size: clamp(32px, 6vw, 45px); 
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   font-weight: bold;
 }
 
-.countdown-boxes p {
-  margin-top: 6px;
-  color: var(--white);
+.countdown-board {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
+/* ================================================= */
+/* CAJAS DEL CONTADOR ESTILO "INVITACIÓN" */
+/* ================================================= */
+.digital-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  width: 90px;
+  height: 100px;
+  
+  /* Fondo semitransparente con desenfoque (Glassmorphism) */
+  background: rgba(15, 15, 15, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  /* Borde rojo uniforme y redondeado */
+  border: 2px solid #e10600;
+  border-radius: 16px;
+  
+  /* Brillo exterior rojo (Efecto neón) */
+  box-shadow: 0 0 20px rgba(225, 6, 0, 0.4);
+  
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer; /* Muestra la manito para invitar a tocar/pasar el cursor */
+  
+  /* Transición suave para las animaciones */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Animación al pasar el ratón (PC) o al tocar (Celular) */
+.digital-box:hover,
+.digital-box:active {
+  transform: translateY(-8px); /* Pequeño salto hacia arriba */
+  box-shadow: 0 8px 35px rgba(225, 6, 0, 0.75); /* El brillo se hace más intenso */
+  border-color: #ff1a1a;
+}
+
+.digital-number {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.digital-label {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #ffd700; /* Dorado para hacer juego con los títulos de la invitación */
+}
+
+/* ================================================= */
+/* RESPONSIVE PARA CELULARES */
+/* ================================================= */
 @media (max-width: 600px) {
-  .countdown-boxes {
-    gap: 10px;
+  .countdown {
+    padding: 40px 15px;
   }
 
-  .countdown-boxes div {
+  .countdown-board {
+    gap: 12px;
+  }
+
+  .digital-box {
     width: 76px;
-    padding: 14px 6px;
+    height: 86px;
+    border-radius: 12px;
   }
 
-  .countdown-boxes span {
-    font-size: 25px;
+  .digital-number {
+    font-size: 26px;
+    margin-bottom: 6px;
   }
 
-  .countdown-boxes p {
-    font-size: 13px;
+  .digital-label {
+    font-size: 11px;
+    letter-spacing: 1px;
   }
 }
