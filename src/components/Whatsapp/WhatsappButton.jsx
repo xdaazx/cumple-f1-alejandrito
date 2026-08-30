@@ -11,7 +11,7 @@ function WhatsappButton() {
           <h2 className="rsvp-title">🏁 ¿Estás listo para la carrera?</h2>
           
           <p className="rsvp-text">
-            Confirma tu asistencia al Gran Premio de Alejandrito.
+            Confirma tu asistencia al Gran Premio de David Alejandro.
           </p>
           
           <div className="rsvp-action">
