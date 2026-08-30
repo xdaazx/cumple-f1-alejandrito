@@ -34,7 +34,7 @@ function CircuitLocation() {
             <iframe 
               title="Mapa Casa de David Alejandro"
               // Aquí está tu enlace oficial de Google Maps
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.96205210706614!2d-79.974748636316!3d-3.2521635980755526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90330efcc9cc4457%3A0xb9fb60a79c7a769b!2sP2XG%2B643%2C%20Machala!5e0!3m2!1ses-419!2sec!4v1788112485520!5m2!1ses-419!2sec" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d856.428715191372!2d-79.9752054986808!3d-3.252290010970825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90330efcc9cc4457%3A0xb9fb60a79c7a769b!2sP2XG%2B643%2C%20Machala!5e0!3m2!1ses-419!2sec!4v1788112774423!5m2!1ses-419!2sec" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
