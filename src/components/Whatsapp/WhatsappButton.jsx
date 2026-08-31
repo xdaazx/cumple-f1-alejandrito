@@ -1,7 +1,7 @@
 import "./WhatsappButton.css";
 
 function WhatsappButton() {
-  const numero = "593963384305";
+  const numero = "593995954813";
   const mensaje = "Hola, confirmo mi asistencia al cumpleaños F1 🏎️🏁";
 
   return (
