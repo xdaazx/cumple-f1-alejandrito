@@ -47,7 +47,7 @@ function Hero() {
           <div className="race-coordinates">
             <p>📅 <strong>17 OCTUBRE 2026</strong></p>
             <p>🕒 <strong>15:00</strong></p>
-            <p>📍 <strong>Circuito:</strong> Casa de Alejandrito</p>
+            <p>📍 <strong>Circuito:</strong> Colegio De Medicos</p>
           </div>
           
           <p className="track-divider">━━━━━━━━━━━━━━━━━━</p>

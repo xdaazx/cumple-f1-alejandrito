@@ -73,7 +73,7 @@ function CircuitLocation() {
           
           <div className="circuit-action">
             <a 
-              href="https://maps.app.goo.gl/T969X2xxwrNkVhgs9" 
+              href="https://maps.app.goo.gl/4h26m6Stc1jMxiyC7" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="maps-button"
