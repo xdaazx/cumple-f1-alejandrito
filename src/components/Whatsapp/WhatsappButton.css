@@ -1,10 +1,18 @@
 .rsvp-section {
-  padding: 50px 20px; /* Reduje el padding excesivo ya que ahora Flexbox lo centra todo */
+  padding: 50px 20px; 
   text-align: center;
   color: white;
   font-family: 'Courier New', Courier, monospace; /* Tipografía digital base */
   width: 100%;
   box-sizing: border-box;
+  position: relative; 
+  overflow: hidden;
+  
+/* Centramos verticalmente la tarjeta y aseguramos que la sección sea alta */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ocupará al menos el 80% del alto de la pantalla */
 }
 
 /* ========================================= */
@@ -40,13 +48,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  /* 👇 Necesario para contener la marca de agua del circuito */
+  position: relative;
+  overflow: hidden;
 }
 
 /* ========================================= */
-/* TÍTULO Y TEXTOS */
+/* MARCA DE AGUA DE LA PISTA (EXPANDIDA Y ANCHA) */
 /* ========================================= */
+.rsvp-track-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Hacemos que sea muy ancha para cruzar toda la pantalla */
+  width: 1200px;
+  max-width: 200vw; 
+  height: auto; /* Mantiene la proporción correcta sin aplastarse */
+  
+  opacity: 0.15; 
+  z-index: 0; 
+  pointer-events: none;
+  filter: drop-shadow(0 0 20px rgba(225, 6, 0, 0.8));
+}
+
+/* ========================================= */
+/* TÍTULO Y TEXTOS (POR ENCIMA DEL FONDO) */
+/* ========================================= */
+.rsvp-title, 
+.rsvp-text, 
+.rsvp-action, 
+.rsvp-footer {
+  position: relative;
+  z-index: 1; /* Aseguramos que queden por encima de la marca de agua */
+}
+
 .rsvp-title {
-  font-family: sans-serif; /* 👈 AQUÍ ROMPEMOS EL ESTILO CONSOLA PARA IGUALAR A LOS OTROS TÍTULOS */
+  font-family: sans-serif; 
   font-size: clamp(24px, 5vw, 32px);
   letter-spacing: 1px;
   margin: 0 0 15px 0;
@@ -64,7 +104,7 @@
 }
 
 /* ========================================= */
-/* BOTÓN DE WHATSAPP (NUEVO DISEÑO NEÓN) */
+/* BOTÓN DE WHATSAPP (DISEÑO NEÓN) */
 /* ========================================= */
 .rsvp-action {
   margin-bottom: 35px;

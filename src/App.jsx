@@ -9,9 +9,9 @@ import Countdown from "./components/Countdown/Countdown";
 import MusicButton from "./components/Music/MusicButton";
 import Gallery from "./components/Gallery/Gallery";
 import Timeline from "./components/Timeline/Timeline";
-import WhatsappButton from "./components/Whatsapp/WhatsappButton";
 import RaceCar from "./components/RaceCar/RaceCar";
 import music from "./assets/musica.mp3";
+import TeamRadio from "./components/TeamRadio/TeamRadio";
 
 function App() {
   const [started, setStarted] = useState(false);
@@ -75,7 +75,7 @@ function App() {
 
             {currentView === "rsvp" && (
               <div className="fade-in">
-                <WhatsappButton />
+                <TeamRadio />
               </div>
             )}
           </div>

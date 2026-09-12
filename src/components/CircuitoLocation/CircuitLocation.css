@@ -1,9 +1,39 @@
+/* ========================================= */
+/* SECCIÓN PRINCIPAL */
+/* ========================================= */
 .circuit-section {
   width: 100%;
   padding: 50px 20px;
   color: white;
-  font-family: 'Courier New', Courier, monospace; /* Tipografía digital */
+  font-family: 'Courier New', Courier, monospace;
   box-sizing: border-box;
+  
+  /* 👇 Agrega estas dos líneas para contener el fondo gigante */
+  position: relative;
+  overflow: hidden;
+}
+/* ========================================= */
+/* FONDO DE CARRETERA ROJA */
+/* ========================================= */
+.circuit-bg-road {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  min-width: 1000px; /* Asegura que cubra pantallas grandes */
+  height: 120%; 
+  opacity: 0.25; /* 👈 Más transparente para que sea un fondo sutil */
+  z-index: 0; 
+  pointer-events: none;
+  filter: drop-shadow(0 0 15px rgba(225, 6, 0, 0.2));
+}
+
+/* Aseguramos que el título y la tarjeta queden POR ENCIMA de la carretera */
+.circuit-section-title,
+.circuit-card {
+  position: relative;
+  z-index: 10;
 }
 
 .circuit-section-title {

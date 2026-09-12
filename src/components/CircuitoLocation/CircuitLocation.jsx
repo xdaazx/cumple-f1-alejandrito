@@ -3,6 +3,16 @@ import "./CircuitLocation.css";
 function CircuitLocation() {
   return (
     <section className="circuit-section" id="ubicacion">
+      
+      {/* ========================================= */}
+      {/* FONDO DE CARRETERA ROJA GIGANTE (DIAGONAL)*/}
+      {/* ========================================= */}
+      <svg className="circuit-bg-road" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <path d="M -100 700 C 300 700, 600 100, 1200 100" fill="none" stroke="#400000" strokeWidth="160" strokeLinecap="round" />
+        <path d="M -100 700 C 300 700, 600 100, 1200 100" fill="none" stroke="#cc0000" strokeWidth="120" strokeLinecap="round" />
+        <path d="M -100 700 C 300 700, 600 100, 1200 100" fill="none" stroke="#ffffff" strokeWidth="6" strokeDasharray="40 40" strokeLinecap="round" />
+      </svg>
+
       <h2 className="circuit-section-title">📍 CIRCUITO</h2>
       
       <div className="circuit-card">
@@ -10,10 +20,10 @@ function CircuitLocation() {
           <h3 className="circuit-name">Casa de David Alejandro</h3>
           
           {/* ========================================= */}
-          {/* ANIMACIÓN DE PISTA ESTILO F1 (CARRITO INTEGRADO) */}
+          {/* ANIMACIÓN DE PISTA ESTILO F1 (CARRITO RESTAURADO) */}
           {/* ========================================= */}
           <div className="circuit-animation-container">
-            <svg viewBox="0 0 400 160" className="circuit-track-svg">
+            <svg viewBox="0 0 400 120" className="circuit-track-svg">
               <defs>
                 <pattern id="checkered" width="4" height="4" patternUnits="userSpaceOnUse">
                   <rect width="2" height="2" fill="#fff" />
@@ -23,34 +33,29 @@ function CircuitLocation() {
                 </pattern>
               </defs>
 
-              {/* Trazado principal de la pista (Se le pone un ID para que el carro lo siga) */}
               <path 
                 id="f1-track"
-                d="M 100 130 L 260 130 C 330 130, 340 40, 270 40 L 180 40 C 130 40, 130 80, 90 80 C 40 80, 40 130, 100 130 Z" 
+                d="M 60 90 L 340 90 C 380 90, 380 30, 340 30 L 150 30 C 90 30, 90 60, 50 60 C 20 60, 20 90, 60 90 Z" 
                 fill="none" 
                 stroke="#333" 
                 strokeWidth="12" 
               />
               
-              {/* Línea punteada en el centro */}
               <path 
-                d="M 100 130 L 260 130 C 330 130, 340 40, 270 40 L 180 40 C 130 40, 130 80, 90 80 C 40 80, 40 130, 100 130 Z" 
+                d="M 60 90 L 340 90 C 380 90, 380 30, 340 30 L 150 30 C 90 30, 90 60, 50 60 C 20 60, 20 90, 60 90 Z" 
                 fill="none" 
                 stroke="#fff" 
                 strokeWidth="1.5" 
                 strokeDasharray="6 4"
               />
 
-              {/* Línea de Salida / Meta a cuadros */}
-              <rect x="95" y="124" width="10" height="12" fill="url(#checkered)" />
+              <rect x="80" y="84" width="10" height="12" fill="url(#checkered)" />
 
-              {/* El Carrito pegado al SVG */}
               <g>
-                <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                <animateMotion dur="5s" repeatCount="indefinite" rotate="auto">
                   <mpath href="#f1-track" />
                 </animateMotion>
-                {/* Lo rotamos (scale) para que mire hacia adelante y lo centramos */}
-                <text x="0" y="8" fontSize="28" textAnchor="middle" transform="scale(-1, 1)" className="svg-car">🏎️</text>
+                <text x="0" y="8" fontSize="24" textAnchor="middle" transform="scale(-1, 1)" className="svg-car">🏎️</text>
               </g>
             </svg>
           </div>
@@ -87,7 +92,7 @@ function CircuitLocation() {
               <span className="icon">📅</span> 17 OCT 2026
             </div>
             <div className="circuit-detail-item">
-              <span className="icon">🕒</span> 15:00
+              <span className="icon">🕒</span> 16:00
             </div>
           </div>
         </div>
