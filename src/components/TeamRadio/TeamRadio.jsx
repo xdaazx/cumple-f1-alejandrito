@@ -3,8 +3,7 @@ import { supabase } from "../../supabaseClient"; // Ajusta los "../" según la u
 import "./TeamRadio.css";
 
 function TeamRadio() {
-  const numeroTelefono = "593963384305"; // El número de los papás
-  
+    const numeroTelefono = "593995954813"; // El número de los papás  
   const [busqueda, setBusqueda] = useState("");
   const [estadoBusqueda, setEstadoBusqueda] = useState("idle"); // idle | found | not_found
   const [invitado, setInvitado] = useState(null);
