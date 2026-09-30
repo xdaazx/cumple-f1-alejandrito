@@ -1,23 +1,29 @@
 /* ========================================= */
+/* IMPORTAR FUENTE DE ESTILO F1 (Titillium Web) */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
+/* ========================================= */
 /* ESTRUCTURA PRINCIPAL DE LA SECCIÓN */
 /* ========================================= */
 .radio-section {
   width: 100%;
   padding: 60px 20px 100px 20px; 
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Titillium Web', sans-serif;
   box-sizing: border-box;
   position: relative;
   text-align: center;
 }
 
 .radio-section-title {
-  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: clamp(28px, 5vw, 38px);
   letter-spacing: 2px;
   margin-bottom: 30px;
   color: #ffffff;
-  font-weight: bold;
+  font-weight: 900;
+  font-style: italic;
   text-transform: uppercase;
 }
 
@@ -28,7 +34,7 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 15px;
-  background: rgba(15, 15, 15, 0.4);
+  background: rgba(15, 15, 15, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 2px solid #e10600;
@@ -53,16 +59,19 @@
 }
 
 .radio-subtitle {
-  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 22px;
+  font-weight: 900;
+  font-style: italic;
   color: #ffd700;
   margin: 0 0 10px 0;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .radio-text {
-  font-size: 15px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
   color: #ccc;
   margin-bottom: 20px;
   line-height: 1.5;
@@ -73,16 +82,18 @@
 /* ========================================= */
 .radio-input {
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   border: 1px solid #444;
   color: #fff;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
   padding: 14px 15px;
   border-radius: 8px;
   margin-bottom: 20px;
   box-sizing: border-box;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 .radio-input:focus {
@@ -94,20 +105,24 @@
 .radio-input.textarea {
   resize: none;
   text-align: left;
+  font-weight: 400;
 }
 
 .radio-btn {
   background: rgba(225, 6, 0, 0.1);
   border: 2px solid #e10600;
   color: #e10600;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 1.5px;
   padding: 14px 20px;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
+  text-transform: uppercase;
 }
 
 .radio-btn:hover {
@@ -122,16 +137,18 @@
   background: rgba(37, 211, 102, 0.1); 
   border: 2px solid #25d366; 
   color: #25d366;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Titillium Web', sans-serif;
   text-decoration: none;
   font-size: 16px;
-  font-weight: bold;
-  letter-spacing: 1px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 1.5px;
   padding: 14px 20px;
   border-radius: 8px;
   text-shadow: 0 0 8px rgba(37, 211, 102, 0.4);
   transition: all 0.3s ease;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .whatsapp-action-btn:hover,
@@ -163,8 +180,9 @@
 .ticker-label {
   background: #e10600;
   color: #fff;
-  font-family: sans-serif;
-  font-weight: bold;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-style: italic;
   font-size: 14px;
   padding: 0 15px;
   height: 100%;
@@ -172,7 +190,8 @@
   align-items: center;
   z-index: 10;
   white-space: nowrap;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .ticker-wrap {
@@ -191,17 +210,18 @@
 }
 
 .ticker-item {
-  font-family: sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 16px;
   color: #fff;
   padding: 0 40px;
   font-style: italic;
+  font-weight: 700;
 }
 
 .ticker-name {
   color: #ffd700;
-  font-weight: bold;
-  font-style: normal;
+  font-weight: 900;
+  font-style: italic;
 }
 
 @keyframes tickerScroll {

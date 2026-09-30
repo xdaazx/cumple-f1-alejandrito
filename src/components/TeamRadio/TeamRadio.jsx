@@ -1,20 +1,54 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../../supabaseClient"; // Ajusta los "../" según la ubicación de tu archivo
 import "./TeamRadio.css";
 
 function TeamRadio() {
-    const numeroTelefono = "593995954813"; // El número de los papás  
+  const numeroTelefono = "593995954813"; // El número de los papás  
   const [busqueda, setBusqueda] = useState("");
   const [estadoBusqueda, setEstadoBusqueda] = useState("idle"); // idle | found | not_found
   const [invitado, setInvitado] = useState(null);
   const [mensajeRadio, setMensajeRadio] = useState("");
   const [enviado, setEnviado] = useState(false);
 
-  // Mensajes iniciales de la cinta de radio
+  // Mensajes iniciales y dinámicos de la cinta de radio
   const [mensajesTicker, setMensajesTicker] = useState([
     { nombre: "Tíos", texto: "¡Feliz cumpleaños campeón! Nos vemos en la pista." },
     { nombre: "Abuelos", texto: "Preparando los motores para celebrar a nuestro nieto hermoso." }
   ]);
+
+  // CARGAR MENSAJES DE SUPABASE AL INICIAR LA PÁGINA
+  useEffect(() => {
+    const cargarMensajesRadio = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('team_radio')
+          .select('*')
+          .order('created_at', { ascending: true });
+
+        if (error) {
+          console.error("Error al cargar mensajes de la radio:", error);
+        }
+
+        if (data && data.length > 0) {
+          const mensajesBD = data.map(item => ({
+            nombre: item.invitado_nombre,
+            texto: item.mensaje
+          }));
+
+          // Mantenemos los iniciales y agregamos los de la base de datos
+          setMensajesTicker([
+            { nombre: "Tíos", texto: "¡Feliz cumpleaños campeón! Nos vemos en la pista." },
+            { nombre: "Abuelos", texto: "Preparando los motores para celebrar a nuestro nieto hermoso." },
+            ...mensajesBD
+          ]);
+        }
+      } catch (err) {
+        console.error("Excepción al obtener mensajes de la radio:", err);
+      }
+    };
+
+    cargarMensajesRadio();
+  }, []);
 
   // BÚSQUEDA INTELIGENTE POR NOMBRE Y APELLIDO (SEPARADOS Y FLEXIBLES)
   const handleBuscar = async (e) => {
@@ -23,14 +57,12 @@ function TeamRadio() {
     
     if (!busquedaLimpia) return;
 
-    // Separamos lo que escribieron por espacios (ej: ["Daniel", "Ajila"])
     const palabras = busquedaLimpia.split(/\s+/);
     console.log("Buscando palabras:", palabras);
 
     try {
       let query = supabase.from('invitados').select('*');
 
-      // Aplicamos un filtro dinámico por cada palabra escrita para que coincida en nombre o apellido
       palabras.forEach(palabra => {
         query = query.or(`nombre.ilike.%${palabra}%,apellido.ilike.%${palabra}%`);
       });
@@ -45,7 +77,6 @@ function TeamRadio() {
       }
 
       if (data && data.length > 0) {
-        // Guardamos el ID, el nombre completo formateado y los pases
         setInvitado({
           id: data[0].id,
           nombre: `${data[0].nombre} ${data[0].apellido}`,
@@ -67,20 +98,30 @@ function TeamRadio() {
     
     if (mensajeRadio.trim() !== "") {
       try {
+        console.log("Intentando guardar mensaje en team_radio...");
         // 1. Guardar el mensaje en la tabla 'team_radio' de Supabase
-        await supabase
+        const { error: errorRadio } = await supabase
           .from('team_radio')
           .insert([{ invitado_nombre: invitado.nombre, mensaje: mensajeRadio }]);
 
+        if (errorRadio) {
+          console.error("Error al insertar en team_radio:", errorRadio);
+        } else {
+          console.log("¡Mensaje guardado en team_radio con éxito!");
+        }
+
         // 2. Actualizar el estado del invitado a confirmado usando su ID único
-        await supabase
+        const { error: errorInvitado } = await supabase
           .from('invitados')
           .update({ confirmado: true })
           .eq('id', invitado.id);
 
-        console.log("Asistencia guardada y confirmada con éxito");
+        if (errorInvitado) {
+          console.error("Error al actualizar invitado:", errorInvitado);
+        }
+
       } catch (err) {
-        console.error("Error al guardar en Supabase:", err);
+        console.error("Excepción grave al guardar en Supabase:", err);
       }
 
       // 3. Guardar el mensaje visualmente en la cinta (Ticker)
@@ -89,7 +130,7 @@ function TeamRadio() {
     
     setEnviado(true);
 
-    // 4. Generar y abrir el enlace de WhatsApp con el mensaje predeterminado
+    // 4. Generar y abrir el enlace de WhatsApp
     const textoWhatsapp = `Hola, soy ${invitado.nombre}. Confirmo mi asistencia al Gran Premio de David Alejandro. ¡Asegurados mis ${invitado.pases} pases en pits! 🏎️🏁`;
     const url = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(textoWhatsapp)}`;
     window.open(url, "_blank");

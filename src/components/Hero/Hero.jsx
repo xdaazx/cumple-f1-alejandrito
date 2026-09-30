@@ -46,7 +46,7 @@ function Hero() {
 
           <div className="race-coordinates">
             <p>📅 <strong>17 OCTUBRE 2026</strong></p>
-            <p>🕒 <strong>16:00</strong></p>
+            <p>🕒 <strong>15:30</strong></p>
             <p>📍 <strong>Circuito:</strong> Casa de David Alejandro</p>
           </div>
           

@@ -1,3 +1,8 @@
+/* ========================================= */
+/* IMPORTAR FUENTE DE ESTILO F1 (Titillium Web) */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
 .navbar {
   width: 100%;
   box-sizing: border-box;
@@ -22,10 +27,13 @@
 
 .nav-logo {
   margin: 0;
-  font-size: 20px;
+  font-size: 22px;
   color: #ffffff;
-  letter-spacing: 1px;
-  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 2px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 .nav-links {
@@ -39,9 +47,12 @@
   color: #888; /* Gris apagado cuando no está activo */
   padding: 8px 16px;
   border-radius: 20px;
-  font-size: 14px;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
+  font-size: 15px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -65,6 +76,7 @@
 
 .nav-icon {
   font-size: 18px;
+  font-style: normal; /* Para evitar que el icono se incline con la cursiva */
 }
 
 /* ========================================= */
@@ -97,8 +109,9 @@
     flex-direction: column; /* Icono arriba, texto abajo */
     gap: 5px;
     padding: 8px 5px;
-    font-size: 10px;
+    font-size: 11px; /* Ligeramente más grande para compensar la tipografía F1 */
     border-radius: 12px;
+    letter-spacing: 0.5px;
   }
 
   .nav-btn:hover {
@@ -110,7 +123,7 @@
   }
 
   .nav-icon {
-    font-size: 24px;
+    font-size: 22px;
   }
   
   /* Rediseño del botón activo para celular (más limpio) */

@@ -1,18 +1,27 @@
+/* ========================================= */
+/* IMPORTAR FUENTE DE ESTILO F1 (Titillium Web) */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
 .timeline-section {
   width: 100%;
   box-sizing: border-box;
   padding: 80px 20px;
   text-align: center;
+  font-family: 'Titillium Web', sans-serif;
   /* Sin fondo para que se vea la cuadrícula global */
 }
 
 .timeline-title {
   /* Usamos clamp para que el tamaño se adapte solo a la pantalla */
+  font-family: 'Titillium Web', sans-serif; 
   font-size: clamp(32px, 6vw, 45px); 
   color: #ffffff;
   margin-bottom: 40px;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 900;
+  font-style: italic;
 }
 
 .timeline-container {
@@ -42,24 +51,29 @@
   /* Brillo exterior (Efecto neón) */
   box-shadow: 0 0 25px rgba(225, 6, 0, 0.4);
   
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
 }
 
-.timeline-card:hover {
+.timeline-card:hover,
+.timeline-card:active {
   transform: translateY(-5px);
   box-shadow: 0 8px 35px rgba(225, 6, 0, 0.6);
 }
 
 .timeline-card h3 {
   font-size: 26px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
   color: #ffd700; /* Dorado */
   margin-top: 0;
   margin-bottom: 15px;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .timeline-card p {
   font-size: 18px;
+  font-weight: 400; /* Texto normal para que la descripción se lea cómoda */
   color: #dddddd;
   line-height: 1.6;
   margin: 0;
@@ -82,10 +96,10 @@
   }
 
   .timeline-card h3 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .timeline-card p {
-    font-size: 15px;
+    font-size: 16px;
   }
 }

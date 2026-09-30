@@ -1,17 +1,23 @@
 /* ========================================= */
+/* IMPORTAR FUENTE DE ESTILO F1 (Titillium Web) */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
+/* ========================================= */
 /* SECCIÓN PRINCIPAL */
 /* ========================================= */
 .circuit-section {
   width: 100%;
   padding: 50px 20px;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Titillium Web', sans-serif;
   box-sizing: border-box;
   
   /* 👇 Agrega estas dos líneas para contener el fondo gigante */
   position: relative;
   overflow: hidden;
 }
+
 /* ========================================= */
 /* FONDO DE CARRETERA ROJA */
 /* ========================================= */
@@ -37,12 +43,13 @@
 }
 
 .circuit-section-title {
-  font-family: sans-serif; /* Tipografía de título F1 */
+  font-family: 'Titillium Web', sans-serif; 
   font-size: clamp(28px, 5vw, 38px);
   letter-spacing: 2px;
   margin-bottom: 30px;
   color: #ffffff;
-  font-weight: bold;
+  font-weight: 900;
+  font-style: italic;
   text-transform: uppercase;
   text-align: center; /* Título centrado */
 }
@@ -87,17 +94,21 @@
 /* TEXTOS INTERNOS */
 /* ========================================= */
 .circuit-name {
-  font-size: 20px;
+  font-size: 24px;
   margin: 0 0 5px 0;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   color: #ffd700; /* Dorado para destacar */
-  font-weight: bold;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
 }
 
 .circuit-icon {
   font-size: 22px;
-  margin: 0 0 20px 0; 
+  margin: 0 0 20px 0;
+  font-style: normal; /* Evita que los emojis se inclinen */
 }
+
 /* ========================================= */
 /* ANIMACIÓN DEL CIRCUITO Y CARRITO */
 /* ========================================= */
@@ -121,6 +132,7 @@
 .svg-car {
   filter: drop-shadow(0 0 10px rgba(225, 6, 0, 0.9));
 }
+
 /* ========================================= */
 /* MAPA INCRUSTADO (EL ARREGLO) */
 /* ========================================= */
@@ -165,7 +177,10 @@
   color: #00ff66;
   text-decoration: none;
   font-size: 16px;
-  font-weight: bold;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
   letter-spacing: 2px;
   padding: 12px 20px;
   border-radius: 8px;
@@ -191,7 +206,9 @@
   flex-direction: column;
   gap: 12px;
   color: #ccc;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
   width: 100%;
   align-items: center;
 }
@@ -205,6 +222,7 @@
 
 .circuit-detail-item .icon {
   font-size: 18px;
+  font-style: normal; /* Evita que los emojis se inclinen */
 }
 
 /* ========================================= */
@@ -225,7 +243,7 @@
   }
 
   .circuit-name {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .map-container {

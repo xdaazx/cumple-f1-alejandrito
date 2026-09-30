@@ -92,7 +92,7 @@ function CircuitLocation() {
               <span className="icon">📅</span> 17 OCT 2026
             </div>
             <div className="circuit-detail-item">
-              <span className="icon">🕒</span> 16:00
+              <span className="icon">🕒</span> 15:30
             </div>
           </div>
         </div>

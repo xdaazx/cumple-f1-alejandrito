@@ -1,19 +1,29 @@
+/* ========================================= */
+/* IMPORTAR FUENTE DE ESTILO F1 (Titillium Web) */
+/* ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
 .gallery-section {
   padding: 60px 5%;
- 
   text-align: center;
   color: white;
   overflow: hidden;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 .gallery-section h2 {
   font-size: clamp(26px, 5vw, 42px);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
   margin-bottom: 12px;
   letter-spacing: 2px;
 }
 
 .gallery-subtitle {
   color: #ccc;
+  font-size: 18px;
+  font-weight: 400;
   max-width: 650px;
   margin: 0 auto 35px;
   line-height: 1.6;
@@ -102,7 +112,7 @@
   box-shadow: 0 10px 30px rgba(225, 6, 0, 0.3);
 }
 
-/* El borde doble interior sugerido en tu imagen */
+/* El borde doble interior */
 .card-inner-border {
   border: 1.5px dashed #555;
   border-radius: 8px;
@@ -119,12 +129,15 @@
 }
 
 .card-header {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 14px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-align: left;
   color: #fff;
   margin-bottom: 15px;
-  letter-spacing: 1px;
 }
 
 .image-container img {
@@ -136,10 +149,14 @@
 }
 
 .card-footer {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 13px;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-align: right;
-  color: #aaa;
+  color: #ffd700; /* Dorado para que resalte como dato de cronometraje */
   margin-top: 15px;
 }
 
@@ -184,6 +201,7 @@
   background: none;
   border: none;
   color: white;
+  font-family: 'Titillium Web', sans-serif;
   font-size: 40px;
   cursor: pointer;
   transition: color 0.3s;
@@ -227,7 +245,11 @@
     height: 170px;
   }
   
-  .card-header, .card-footer {
+  .card-header {
+    font-size: 14px;
+  }
+  
+  .card-footer {
     font-size: 12px;
   }
 }
