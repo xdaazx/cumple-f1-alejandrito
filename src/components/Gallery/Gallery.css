@@ -143,9 +143,9 @@
 .image-container img {
   width: 100%;
   height: 220px;
-  object-fit: cover; /* Recorta la imagen para que todas queden iguales */
+  object-fit: contain; /* 👈 CAMBIO CLAVE: 'contain' ajusta la foto entera sin recortar nada */
   border-radius: 6px;
-  background: #000;
+  background: transparent; /* 👈 Cambiado a transparente para que el fondo blanco de la foto se mezcle mejor */
 }
 
 .card-footer {
