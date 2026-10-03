@@ -168,7 +168,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 55px; 
   background: #000;
   border-top: 2px solid #333;
   border-bottom: 2px solid #333;
@@ -183,7 +183,7 @@
   font-family: 'Titillium Web', sans-serif;
   font-weight: 900;
   font-style: italic;
-  font-size: 14px;
+  font-size: 15px;
   padding: 0 15px;
   height: 100%;
   display: flex;
@@ -198,30 +198,37 @@
   flex-grow: 1;
   overflow: hidden;
   height: 100%;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
 }
 
 .ticker-move {
   display: flex;
+  width: max-content; /* 👈 LA MAGIA: Obliga a calcular el ancho real de los mensajes, evitando huecos negros */
   white-space: nowrap;
-  animation: tickerScroll 25s linear infinite;
+  animation: tickerScroll 30s linear infinite; /* Tiempo equilibrado para que no vaya ni muy rápido ni muy lento */
+}
+
+/* 👈 NUEVA FUNCIÓN: Pausar la cinta al tocarla (móvil) o pasar el mouse (PC) */
+.ticker-wrap:hover .ticker-move,
+.ticker-wrap:active .ticker-move {
+  animation-play-state: paused;
 }
 
 .ticker-item {
   font-family: 'Titillium Web', sans-serif;
-  font-size: 16px;
+  font-size: 18px; 
   color: #fff;
   padding: 0 40px;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 900; 
+  letter-spacing: 0.5px; 
+  flex-shrink: 0; /* 👈 Evita que el texto se comprima y desaparezca */
 }
 
 .ticker-name {
   color: #ffd700;
   font-weight: 900;
   font-style: italic;
+  text-transform: uppercase; 
 }
 
 @keyframes tickerScroll {
@@ -229,8 +236,19 @@
   100% { transform: translateX(-50%); }
 }
 
+/* AJUSTES ESPECÍFICOS PARA CELULARES */
 @media (max-width: 600px) {
-  .ticker-label { font-size: 12px; padding: 0 10px; }
-  .ticker-item { font-size: 14px; padding: 0 20px; }
-  .whatsapp-action-btn, .radio-btn { font-size: 14px; padding: 12px 15px; }
+  .ticker-label { 
+    font-size: 13px; 
+    padding: 0 10px; 
+  }
+  
+  .ticker-item { 
+    font-size: 16px; 
+    padding: 0 20px; 
+  }
+  
+  .ticker-move {
+    animation: tickerScroll 20s linear infinite; 
+  }
 }
